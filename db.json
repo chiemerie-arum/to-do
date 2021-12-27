@@ -1,0 +1,76 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Solve coding challenge",
+      "date": "November 23rd, 2020",
+      "done": true
+    },
+    {
+      "id": 2,
+      "title": "Learn a new technology",
+      "date": 1640601397520,
+      "done": true
+    },
+    {
+      "id": 3,
+      "title": "Make some pasta",
+      "date": 1640601197520,
+      "done": true
+    },
+    {
+      "id": 4,
+      "title": "Play football",
+      "date": 1640601398520,
+      "done": false
+    },
+    {
+      "id": 5,
+      "title": "Have dinner",
+      "date": 1640101397520,
+      "done": false
+    },
+    {
+      "id": 6,
+      "title": "Watch netflix",
+      "date": 1540601397529,
+      "done": false
+    },
+    {
+      "id": 7,
+      "title": "Add moe to it",
+      "date": 1640606679042,
+      "done": false
+    },
+    {
+      "id": 8,
+      "title": "sasfasfasf",
+      "date": 1640612720899,
+      "done": false
+    },
+    {
+      "id": 9,
+      "title": "asfasfasf",
+      "date": 1640612723430,
+      "done": false
+    },
+    {
+      "id": 10,
+      "title": "safsfsfasf",
+      "date": 1640612726408,
+      "done": false
+    },
+    {
+      "id": 11,
+      "title": "asfasf",
+      "date": 1640612729902,
+      "done": false
+    },
+    {
+      "id": 12,
+      "title": "asfasfasf",
+      "date": 1640612732026,
+      "done": false
+    }
+  ]
+}
