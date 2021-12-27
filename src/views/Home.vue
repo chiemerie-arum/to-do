@@ -106,7 +106,7 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters(["doneTodos", "pendingTodos", "todos"]),
-    iconSelector() {
+    iconSelector(): string {
       return this.expanded === true ? "caret-down" : "caret-right";
     },
   },
@@ -149,9 +149,7 @@ $button-disabled: #ccc;
 $text-color: #121212;
 $text-color-done: #aaa;
 $white-color: #fff;
-// --unnamed-color-eeeeee: #EEEEEE;
-// --unnamed-color-bbbbbb: #BBBBBB;
-// --unnamed-color-41a0ff: #41A0FF;
+
 .home {
   position: relative;
   display: flex;
