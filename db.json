@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Solve coding challenge",
-      "date": "November 23rd, 2020",
+      "date": 1640601398520,
       "done": true
     },
     {
@@ -34,12 +34,6 @@
       "id": 6,
       "title": "Watch netflix",
       "date": 1540601397529,
-      "done": false
-    },
-    {
-      "id": 7,
-      "title": "Add new Item to it",
-      "date": 1640614079970,
       "done": false
     }
   ]
