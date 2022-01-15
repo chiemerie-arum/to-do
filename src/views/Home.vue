@@ -6,7 +6,7 @@
       <accordion v-if="doneTodos.length" class="todo-list__done-items">
         <accordion-item>
           <template slot="accordion-trigger">
-            <h3 @click="updateExpaned">
+            <h3>
               <span><font-awesome-icon :icon="iconSelector" /></span> &emsp;
               {{ doneTodos.length }} Done
             </h3>
@@ -84,7 +84,6 @@ interface TodoItem {
 
 interface TodoData {
   inputText: string;
-  expanded: boolean;
   buttonText: string;
 }
 
@@ -97,7 +96,6 @@ export default Vue.extend({
   data(): TodoData {
     return {
       inputText: "",
-      expanded: false,
       buttonText: "Add Item",
     };
   },
@@ -105,9 +103,9 @@ export default Vue.extend({
     this.$store.dispatch("fetchTodos");
   },
   computed: {
-    ...mapGetters(["doneTodos", "pendingTodos", "todos"]),
+    ...mapGetters(["doneTodos", "pendingTodos", "todos", "expanded"]),
     iconSelector(): string {
-      return this.expanded === true ? "caret-down" : "caret-right";
+      return this.expanded ? "caret-down" : "caret-right";
     },
   },
   methods: {
@@ -116,9 +114,6 @@ export default Vue.extend({
     },
     onMouseLeave() {
       this.buttonText = "Add Item";
-    },
-    updateExpaned() {
-      this.expanded = !this.expanded;
     },
     addItem() {
       const todo: TodoItem = {
@@ -223,6 +218,7 @@ $white-color: #fff;
   }
 
   &__done-items {
+    width: 100%;
     border-top: 1px solid #eeeeee;
     border-bottom: 1px solid #eeeeee;
     margin-bottom: 10px;
@@ -280,16 +276,6 @@ $white-color: #fff;
     width: 0;
   }
 
-  .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    transform: rotate(45deg);
-  }
-
   input.checked ~ .checkmark {
     background-color: #0080ff;
     border: none;
@@ -310,9 +296,12 @@ $white-color: #fff;
   border-radius: 15px;
 
   &:after {
-    content: "";
+    content: url("./check.svg");
     position: absolute;
-    display: none;
+    left: 6px;
+    top: -2px;
+    width: 5px;
+    height: 10px;
   }
 }
 </style>

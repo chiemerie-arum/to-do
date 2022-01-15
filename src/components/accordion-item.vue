@@ -1,22 +1,24 @@
 <template>
   <div class="accordion__item">
-    <div 
+    <div
       class="accordion__trigger"
-      :class="{'accordion__trigger_active': visible}"
-      @click="open">
-
+      :class="{ accordion__trigger_active: visible }"
+      @click="
+        open();
+        handle();
+      "
+    >
       <!-- This slot will handle the title/header of the accordion and is the part you click on -->
       <slot name="accordion-trigger"></slot>
     </div>
 
-    <transition 
+    <transition
       name="accordion"
       @enter="start"
       @after-enter="end"
       @before-leave="start"
       @after-leave="end"
     >
-
       <div class="accordion__content" v-show="visible">
         <slot name="accordion-content"></slot>
       </div>
@@ -24,21 +26,22 @@
   </div>
 </template>
 
-
 <script>
+import { mapGetters } from "vuex";
 /* eslint-disable */
 export default {
   props: {},
   inject: ["Accordion"],
   data() {
     return {
-      index: null
+      index: null,
     };
   },
   computed: {
+    ...mapGetters(["expanded"]),
     visible() {
       return this.index == this.Accordion.active;
-    }
+    },
   },
   methods: {
     open() {
@@ -53,18 +56,21 @@ export default {
     },
     end(el) {
       el.style.height = "";
-    }
+    },
+    handle() {
+      this.$store.dispatch("updateExpanded");
+    },
   },
   created() {
     this.index = this.Accordion.count++;
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .accordion__item {
   cursor: pointer;
-  border-bottom: 1px solid #ebebeb;
+  // border-bottom: 1px solid #ebebeb;
   position: relative;
 }
 

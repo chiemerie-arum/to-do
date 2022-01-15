@@ -24,7 +24,7 @@ const suffixSelector = (lastLetter: string) => {
 
 const dateFormatter: dataFormatter = (date: number) => {
   const formattedDate = new Date(date).toLocaleString("en-US", {
-    day: "2-digit",
+    day: "numeric",
     year: "numeric",
     month: "long",
   });

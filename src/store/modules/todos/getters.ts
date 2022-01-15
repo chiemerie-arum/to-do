@@ -12,4 +12,7 @@ export const getters: GetterTree<TodoState, RootState> = {
   doneTodos(state): Array<TodoType> {
     return state.todos.filter((todo) => todo.done === true);
   },
+  expanded(state): boolean {
+    return state.expanded;
+  },
 };

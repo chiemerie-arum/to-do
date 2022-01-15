@@ -5,6 +5,7 @@ export enum TodoMutations {
   ADD_TODO = "ADD_TODO",
   SET_TODOS = "SET_TODOS",
   UPDATE_TODO = "UPDATE_TODO",
+  UPDATE_EXPANDED = "UPDATE_EXPANDED",
 }
 export const mutations: MutationTree<TodoState> = {
   [TodoMutations.ADD_TODO](state: TodoState, todo: TodoType) {
@@ -20,5 +21,8 @@ export const mutations: MutationTree<TodoState> = {
     if (todoToBeUpdated) {
       todoToBeUpdated.done = !todoToBeUpdated.done;
     }
+  },
+  [TodoMutations.UPDATE_EXPANDED](state: TodoState) {
+    state.expanded = !state.expanded;
   },
 };

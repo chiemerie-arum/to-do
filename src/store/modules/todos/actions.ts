@@ -22,4 +22,7 @@ export const actions: ActionTree<TodoState, RootState> = {
   updateTodo({ commit }: Context, todo: TodoType) {
     commit(TodoMutations.UPDATE_TODO, todo);
   },
+  updateExpanded({ commit }: Context) {
+    commit(TodoMutations.UPDATE_EXPANDED);
+  },
 };
